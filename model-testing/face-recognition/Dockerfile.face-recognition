@@ -1,0 +1,15 @@
+FROM w251/keras:dev-tx2-4.3_b132
+
+RUN apt-get update && apt-get install -y python-opencv python3-opencv
+
+# RUN pip3 install mtcnn
+
+WORKDIR /
+RUN mkdir -p notebooks
+WORKDIR /notebooks
+
+EXPOSE 8888
+
+# Jupyter
+CMD jupyter notebook  --no-browser --ip=0.0.0.0 --allow-root
+
