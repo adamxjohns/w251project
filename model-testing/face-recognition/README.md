@@ -4,5 +4,6 @@
 
 1. Remember to download the [FaceNet model](https://drive.google.com/drive/folders/12aMYASGCKvDdkygSv1yQq8ns03AStDO_) and save it in the same fold as the notebook
 2. cd into the directory where the notebook is on TX2
-3. run the container with ```docker run -v $PWD:/notebooks -p 8888:8888 -d -rm erikhou/final_project_keras:1.0```
-4. Just follow along the code in the notebook. 
+3. run the container with ```docker run -v $PWD:/notebooks -p 8888:8888 -d --rm erikhou/final_project_keras:1.0```
+4. ```docker logs <your contain id>``` to access the link with token for the juypter notebook server
+5. Just follow along the code in the notebook. 
