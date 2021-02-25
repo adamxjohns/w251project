@@ -1,4 +1,4 @@
-# W251 Final Project
+# W251 Final Project - Building a Facial Recognition at the Edge
 
 ## Jetson Transfer Learning:
 * Code for processing training examples: https://github.com/adamxjohns/w251project/blob/master/data_preprocessing.ipynb
