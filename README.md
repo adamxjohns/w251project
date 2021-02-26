@@ -1,6 +1,8 @@
 # Building a Facial Recognition System at the Edge
 
-In this project, my team performed transfer learning on FaceNet at the edge using Nvidia Jetson TX2 for better user privacy and data security. This repo is forked from the [project main repo](https://github.com/adamxjohns/w251project) hosted by one of the teammate's GitHub.
+In this project, we performed transfer learning on FaceNet at the edge using Nvidia Jetson TX2 for better user privacy and data security. This repo is forked from the [project main repo](https://github.com/adamxjohns/w251project) hosted by one of the teammate's GitHub.
+
+Team: Erik Hou, Joanna Yu, Yuze Chen, Adam Johns
 
 The [project white papar](https://github.com/adamxjohns/w251project/blob/master/w251%20final%20project%20report%20final.pdf)
 
@@ -9,11 +11,12 @@ The [project white papar](https://github.com/adamxjohns/w251project/blob/master/
 * Nvidia Jetson TX2
 * Jetpack 4.3 (Docker is pre-installed)
 * Pre-trained Keras FaceNet model provided by [Hiroki Taniai](https://github.com/nyoki-mtl/keras-facenet)
+
 ## Steps
 
 Note:
 * All steps if not specify should be performed on Jetson TX2 
-* Refer to the directory structure for the locations to store the preprocessing results
+* Refer to the directory structure for the locations to store the preprocessed images
 
 ```
 -- repo root dir  
@@ -42,11 +45,11 @@ Note:
 ```
 
 ### Preprocess Data
-1. Use any device capable of recording videos to record short videos (1-2 minutes) of the people to train the classifier and save it to the data/video folder under the repo root folder and name the video by the person's name as the label. 
-2. On TX2, cd into the root directory of this repo which is also where the data pre-processing notebook ([data_preprocessing.ipynb](https://github.com/adamxjohns/w251project/blob/master/data_preprocessing.ipynb))
-3. Run the container with `docker run -v $PWD:/notebooks -p 8888:8888 -d --rm erikhou/final_project_keras:2.0`
+1. Use any device capable of recording videos to record short videos (1-2 minutes) of the people to train the classifier and save it to the data/video folder under the repo root directory and name the videos by the person's name as the labels. 
+2. On TX2, cd into the root directory of this repo which is also where the data pre-processing notebook ([data_preprocessing.ipynb](https://github.com/adamxjohns/w251project/blob/master/data_preprocessing.ipynb)) is.
+3. Run the project container with `docker run -v $PWD:/notebooks -p 8888:8888 -d --rm erikhou/final_project_keras:2.0`
 4. Run the command `docker logs <your contain id>` to access the link with token for the juypter notebook server
-5. Follow the steps in [data_preprocessing.ipynb](https://github.com/adamxjohns/w251project/blob/master/data_preprocessing.ipynb) to extract and align the face images for fine-tuning FaceNet. To skip fine-tuning FaceNet and train the SVM classifier directly, follow the steps in the last section to code the aligned face images and save the embeddings.
+5. Open the notebook and follow the steps in [data_preprocessing.ipynb](https://github.com/adamxjohns/w251project/blob/master/data_preprocessing.ipynb) to extract and align the face images for fine-tuning FaceNet. To skip fine-tuning FaceNet and train the SVM classifier directly, follow the steps in the last section to encode the aligned face images and save the embeddings.
 
 ### Transfer Learning on validation
 1. Use the same container in Preprocessing Data
